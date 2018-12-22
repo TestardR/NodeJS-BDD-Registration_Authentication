@@ -7,13 +7,26 @@ describe('User', function() {
     before(function() {
       user = new User({ email: 'romain.rtestard@gmail.com' });
     });
-    it('email is romain.rtestard@gmail.com');
-    it('has an authentification token');
-    it('has a pending status');
-    it('has a signInCount of 0');
-    it('has currentLogin');
-    it('has a sessionToken');
-    it('has a reminderToken');
-    it('has a reminder sent date');
+    it('email is romain.rtestard@gmail.com', function() {
+      user.email.should.equal('romain.rtestard@gmail.com');
+    });
+    it('has an authentification token', function() {
+      user.authenticationToken.should.be.defined;
+    });
+    it('has a pending status', function() {
+      user.status.should.equal('pending');
+    });
+    it('has a created date', function() {
+      user.createdAt.should.be.defined;
+    });
+    it('has a signInCount of 0', function() {
+      user.signInCount.should.equal(0);
+    });
+    it('has lastLogin', function() {
+      user.lastLoginAt.should.be.defined;
+    });
+    it('has currentLogin', function() {
+      user.currentLoginAt.should.be.defined;
+    });
   });
 });
